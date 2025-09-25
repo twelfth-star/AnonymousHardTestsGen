@@ -12,13 +12,15 @@ The input should comply with the constraints given in the problem statement. I w
 
 # LLMGen
 
-Please generate 10 valid input data according to the problem stated below. You may follow the examples given in the problem description and generate variations that are different. Please respect the constraints and data types in the description.
+Please generate 10 valid inputs according to the problem stated below. You may follow the examples given in the problem description and generate variations that are different. Please respect the constraints and data types in the description.
 
 Note: each input's length should be similar to the sample test cases' input, comply with the constraints given in the problem, and must not exceed 300 characters under any circumstances. If it is not possible to generate input under this length limit, give up on generating them.
 
 # RPGen
 
-Given the problem described below, please identify the input data value types (e.g., int, float, string), ranges, and data constraints (e.g., x-y coordinates forming a convex polygon or number of items which should be nonnegative), and then generate a python function `gen_range_based_input` which will return one random input data for the problem with respecting to these types, ranges, and constraints. You should ensure the generated input satisfies the constraints as much as possible, and may even sacrifice some degree of randomness to do so. But if trying to enforce a constraint leads to a function that cannot run within finite and reasonable time complexity (e.g., $O(n)$ for $n \leq 10^6$, or $O(n^2)$ for $n \leq 10^3$), then you may ignore that constraint. 
+Given the problem described below, please identify the input data types (e.g., int, string), ranges, and data constraints (e.g., x-y coordinates forming a convex polygon or number of items which should be nonnegative), and then generate a python function `gen_range_based_input` which will return one random input data for the problem with respecting to these types, ranges, and constraints.
+
+You should ensure the generated input satisfies the constraints as much as possible, and may even sacrifice some degree of randomness to do so. But if trying to enforce a constraint leads to a function that cannot run within finite and reasonable time complexity (e.g., $O(n)$ for $n \leq 10^6$, or $O(n^2)$ for $n \leq 10^3$), then you may ignore that constraint. 
 
 **Pay close attention**: do not use `while` loops, especially ones that "keep generating until a constraint is satisfied." That can cause unlimited running time and make input generation fail.
 
@@ -77,9 +79,9 @@ There are 6 output categories, corresponding to 6 input categories. For the firs
 
 # HackGen
 
-Given the problem described below, please first generate several solutions using brute-force enumeration or a classic algorithm (e.g., depth first search), by explicitly ignoring some constraints, corner conditions or data range. Secondly, please think about scenarios where these solutions can fail or exceed time limit(TLE) and then generate one function `gen_hacking_input_for_<scenario_type>` which will produce a possibly random input data corresponding to the failing scenarios.
+Given the problem described below, please first describe several flawed solution programs using brute-force enumeration or a classic algorithm (e.g., depth-first search), by explicitly ignoring some constraints, corner conditions, or data range. Secondly, please think about scenarios where these programs will fail or exceed the time limit (TLE). Thirdly, for each scenario, generate one function `gen_hacking_input_for_<scenario_type>` which will produce possibly random input data corresponding to such a failing scenario.
 
- Note: for some problems, even though the brute-force algorithm's worst-case complexity is $O(n^2)$, due to rare worst-case inputs, the actual runtime is closer to $O(n)$. In these cases, you need to specially construct the data to repeatedly trigger the worst-case scenario for those brute-force algorithms.
+Note: for some problems, even though the brute-force algorithm's worst-case complexity is $O(n^2)$, due to rare worst-case inputs, the actual runtime is closer to $O(n)$. In these cases, you need to specially construct the data to repeatedly trigger the worst-case scenario for those brute-force algorithms.
 
 For some problems, we also need some types of inputs to expose bugs caused by failure to handle edge cases. So you should think about whether there are any special edge cases (e.g., input $n=0$, or tree root is None, etc.). Note that the randomness of the input data itself at this time is not important. The key point is to expose the errors of the candidate programs.
 
