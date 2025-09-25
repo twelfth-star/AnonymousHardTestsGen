@@ -94,7 +94,7 @@ python hard_tests_gen/test_cases_generation.py \
 ```
 
 **Arguments:**
-- `--problem_data_path`: Path to the problem data file (JSONL format, each line is a problem dict). This can also be a HuggingFace dataset name (e.g., `sigcp/hardtests_problems`).
+- `--problem_data_path`: Path to the problem data file (JSONL format, each line is a problem dict).
 - `--test_cases_kit_path`: Path to the test cases kit file generated in Step 1.
 - `--test_cases_save_path`: Path to save the generated test cases (JSONL format).
 - `--test_cases_related_contents_save_path`: Path to save related contents for each test case (JSONL format).
